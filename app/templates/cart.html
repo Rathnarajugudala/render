@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="cart-container">
+    <div class="cart-header">
+        <h1 class="cart-title">Shopping Cart</h1>
+        <p class="cart-subtitle">Review your items and proceed to checkout</p>
+    </div>
+
+    <div class="cart-content" id="cartContent">
+        <!-- Cart Items -->
+        <div class="cart-items">
+            <h2>Your Items</h2>
+            {% for i in cart_items %}
+            <div class="cart-item">
+                <div class="item-image"><img src="{{ i.product.image.url }}" alt=""></div>
+                <div class="item-details">
+                    <div class="item-name">{{ i.product.name }}</div>
+                    <div class="item-description">Elegant jacket crafted from premium materials</div>
+                    <div class="item-price">${{ i.product.price }}</div>
+                </div>
+                <div class="item-controls">
+                    <div class="quantity-controls">
+                        <span class="quantity-display">Qty: {{ i.quantity }}</span>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+        <!-- Cart Summary -->
+        <div class="cart-summary">
+            <h2>Order Summary</h2>
+
+            <div class="summary-row">
+                <span>Subtotal:</span>
+                <span>${{ subtotal }}</span>
+            </div>
+
+            <div class="summary-row">
+                <span>Shipping:</span>
+                <span>Free</span>
+            </div>
+
+            <div class="summary-row">
+                <span>Tax:</span>
+                <span>${{ tax }}</span>
+            </div>
+
+            <div class="summary-row">
+                <span>Discount:</span>
+                <span style="color: #4ecdc4;">-${{ discount }}</span>
+            </div>
+
+            <div class="summary-row total">
+                <span>Total:</span>
+                <span>${{ total }}</span>
+            </div>
+
+            <div class="promo-code">
+                <h3>Promo Code</h3>
+                <div class="promo-input">
+                    <input type="text" placeholder="Enter promo code">
+                    <button disabled>Apply</button>
+                </div>
+            </div>
+
+            <button class="checkout-btn" disabled>
+                Proceed to Checkout
+            </button>
+        </div>
+    </div>
+
+    <!-- Empty Cart (Hidden by default) -->
+    <div class="empty-cart" id="emptyCart" style="display: none;">
+        <div class="empty-cart-icon">🛒</div>
+        <h2>Your cart is empty</h2>
+        <p>Looks like you haven't added any items to your cart yet.</p>
+        <a href="#products" class="continue-shopping">Continue Shopping</a>
+    </div>
+</div>
+{% endblock %}

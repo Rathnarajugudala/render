@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block content %}
+<div id="productDetail" class="page">
+    <button class="back-btn" onclick="showPage('products')">← Back to Products</button>
+    <div class="product-detail">
+        <div class="product-detail-image" id="detailImage">📱</div>
+        <div class="product-detail-info">
+            <h2 id="detailTitle">LUXE Smartphone Pro</h2>
+            <div class="product-detail-price" id="detailPrice">$999</div>
+            <p id="detailDescription">Experience the future...</p>
+
+            <div class="quantity-selector">
+                <button class="quantity-btn" onclick="changeQuantity(-1)">-</button>
+                <input type="number" class="quantity-input" id="quantity" value="1" min="1" max="10">
+                <button class="quantity-btn" onclick="changeQuantity(1)">+</button>
+            </div>
+
+            <button class="add-to-cart" onclick="addToCartFromDetail()">Add to Cart</button>
+
+            <div style="margin-top: 2rem;">
+                <h3>Features:</h3>
+                <ul id="detailFeatures">
+                    <!-- Features populated by JS -->
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

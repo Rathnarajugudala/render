@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block content %}
+{% load static %}
+        <div class="container">
+            <div class="cart-header">
+            <h1 class="cart-title">Featured Products</h1>
+            <p class="cart-subtitle">Review your items and proceed to checkout</p>
+        </div>
+            <div class="products-grid">
+                {% for i in products%}
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="{{i.image.url}}" alt="">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">{{i.name}}</h3>
+                        <div class="product-price">${{i.price}}</div>
+                        <p class="product-description">Timeless elegance meets modern functionality in this stunning timepiece.</p>
+                        <a class="buy-button" href="{% url 'add_to_cart' i.id %}">Add to Cart</a>
+                    </div>
+                </div>
+            {%endfor%}
+            </div>
+        </div>
+{%endblock%}
