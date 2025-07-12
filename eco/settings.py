@@ -8,7 +8,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = os.environ.get('SECRET_KEY', 'your-fallback-secret-key')
 DEBUG = os.environ.get('DEBUG', 'False') == 'True'
-ALLOWED_HOSTS = ['your-app-name.onrender.com']  # Replace with actual Render domain
+ALLOWED_HOSTS = ['eco.onrender.com']  # Replace with actual Render domain
 
 # Application definition
 INSTALLED_APPS = [
