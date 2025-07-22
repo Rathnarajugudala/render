@@ -1,16 +1,18 @@
 services:
   - type: web
-    name: Amarulu-2.0
+    name: Amarulu-2.0  # 🔄 CHANGE to your actual app name (matches Render project name)
     env: python
     buildCommand: |
       pip install -r requirements.txt
       python manage.py collectstatic --noinput
       python manage.py migrate
-    startCommand: gunicorn eco --bind 0.0.0.0:$PORT
+    startCommand: gunicorn eco.wsgi:application --bind 0.0.0.0:$PORT
     envVars:
       - key: SECRET_KEY
-        fromEnvVar: SECRET_KEY
-      - key: DATABASE_URL
-        fromEnvVar: DATABASE_URL
+        fromEnvVar: SECRET_KEY   # ✅ Set this on Render's dashboard
       - key: DEBUG
         value: False
+      - key: DATABASE_URL
+        fromEnvVar: DATABASE_URL  # ✅ Set MySQL connection string on Render
+      - key: ALLOWED_HOSTS
+        value: amarulu-2-0.onrender.com  # 🔄 CHANGE to your actual Render domain
