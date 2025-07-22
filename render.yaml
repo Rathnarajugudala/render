@@ -1,6 +1,6 @@
 services:
   - type: web
-    name: Amarulu-2.0  # 🔄 CHANGE to your actual app name (matches Render project name)
+    name: eco  # 🔄 CHANGE to your actual app name (matches Render project name)
     env: python
     buildCommand: |
       pip install -r requirements.txt
@@ -15,4 +15,4 @@ services:
       - key: DATABASE_URL
         fromEnvVar: DATABASE_URL  # ✅ Set MySQL connection string on Render
       - key: ALLOWED_HOSTS
-        value: amarulu-2-0.onrender.com  # 🔄 CHANGE to your actual Render domain
+        value: amarulu.onrender.com  # 🔄 CHANGE to your actual Render domain
