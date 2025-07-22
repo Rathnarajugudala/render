@@ -1,1 +1,1 @@
-web: gunicorn eco.wsgi:application
+web: gunicorn amarulu.wsgi:application
